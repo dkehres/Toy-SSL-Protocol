@@ -15,6 +15,7 @@ import static cis435proj.asciiConverter.*;
 import java.math.BigInteger;
 import java.io.*;
 import java.security.SecureRandom;
+import java.util.Random;
 
 /**
  *
@@ -23,7 +24,7 @@ import java.security.SecureRandom;
 public class RSA {
     //Constants used for RSA calculations
    private final static BigInteger two = new BigInteger("2");
-   private final static SecureRandom random = new SecureRandom();
+   private final static Random random = new Random(1);
    private final static int BIT_LENGTH = 2048;
 
    //Class variables

@@ -40,6 +40,17 @@ public interface TestKeys {
         }
     }
     
+    static public BigInteger getSessionKey(String cipher) {
+        switch (cipher) {
+            case "Shift":
+                return BigInteger.valueOf(shiftValue);
+            case "Substitution":
+                return new BigInteger(substitution.getBytes());
+            default:
+                return null;
+        }
+    }
+    
     static public int[] getSessionKeyArray(Cipher cipher) {
         switch (cipher) {
             case BlockCipher:
@@ -47,6 +58,19 @@ public interface TestKeys {
             case CBC:
                 return blockMap;
             case Polyalphabetic:
+                return shifts;
+            default:
+                return null;
+        }
+    }
+    
+    static public int[] getSessionKeyArray(String cipher) {
+        switch (cipher) {
+            case "BlockCipher":
+                return blockMap;
+            case "CBC":
+                return blockMap;
+            case "Polyalphabetic":
                 return shifts;
             default:
                 return null;
